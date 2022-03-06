@@ -1,0 +1,51 @@
+﻿@model List<Bookshop.Models.Book>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row mb-5 d-grid">
+    <a class="btn btn-outline-success" asp-controller="Book" asp-action="Upsert">Add New Book</a>
+</div>
+
+
+@if (Model.Count > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th scope="col">Price</th>
+                <th scope="col">Pages</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in Model)
+            {
+                <tr>
+                    <td width="10%">@book.Id</td>
+                    <td width="25%">@book.Title</td>
+                    <td width="25%">@book.Author.Name</td>
+                    <td width="10%">@book.Price</td>
+                    <td width="10%">@book.NumOfPages</td>
+                    <td>
+                        <div class="btn-group float-end" role="group" aria-label="Basic example">
+                            <a type="button" class="btn btn-outline-primary" asp-controller="Book" asp-action="Upsert" asp-route-id="@book.Id">Edit</a>
+                            <a type="button" class="btn btn-outline-secondary" asp-controller="Book" asp-action="Details" asp-route-id="@book.Id">Details</a>
+                            <a type="button" class="btn btn-outline-danger" asp-controller="Book" asp-action="Delete" asp-route-id="@book.Id">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+else
+{
+    <h1 class="text-warning text-center">NO BOOKS IN DATABASE</h1>
+}
+

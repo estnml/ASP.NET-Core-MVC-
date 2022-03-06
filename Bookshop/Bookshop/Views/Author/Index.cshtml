@@ -1,0 +1,47 @@
+﻿@model List<Bookshop.Models.Author>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="row mb-5 d-grid">
+    <a class="btn btn-outline-success" asp-controller="Author" asp-action="Upsert">Add New Author</a>
+</div>
+
+
+@if (Model.Count > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var author in Model)
+            {
+                <tr>
+                    <td width="20%">@author.Id</td>
+                    <td width="40%">@author.Name</td>
+                    <td>
+                        <div class="btn-group float-end" role="group" aria-label="Basic example">
+                            <a type="button" class="btn btn-outline-primary" asp-controller="Author" asp-action="Upsert" asp-route-id="@author.Id">Edit</a>
+                            <a type="button" class="btn btn-outline-secondary" asp-controller="Author" asp-action="Details" asp-route-id="@author.Id">Details</a>
+                            <a type="button" class="btn btn-outline-danger" asp-controller="Author" asp-action="Delete" asp-route-id="@author.Id">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+else
+{
+    <h1 class="text-warning text-center">NO AUTHORS IN DATABASE</h1>
+}
+
+

@@ -1,0 +1,27 @@
+﻿@model Bookshop.Models.Book
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="card mb-5">
+    <div class="row">
+        <div class="col-md-4">
+            @if (Model.Image is not null)
+            {
+                <img src="@WC.ImagePathBook@Model.Image" class="img-fluid rounded-start w-100 h-100" asp-append-version="true">
+            }
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">@Model.Title</h5>
+                <p class="card-text">@Model.Description</p>
+                <p class="card-text">Price: @Model.Price.ToString("c")</p>
+                <p class="card-text">Pages: @Model.NumOfPages</p>
+                <p class="card-text">Author: @Model.Author.Name</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,49 @@
+﻿@model Bookshop.Models.Author
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<form asp-controller="Author" asp-action="Delete" method="post">
+    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+    <div class="row">
+        <div class="col-md-8">
+            <input type="hidden" asp-for="@Model.Id" hidden />
+            <div class="mb-3 row">
+                <label asp-for="@Model.Name" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" asp-for="@Model.Name" disabled>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label asp-for="@Model.Description" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" rows="7" asp-for="@Model.Description" disabled></textarea>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label asp-for="@Model.Image" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="file" accept="image/*" name="files" disabled>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <div class="col-2"></div>
+                <div class="col-10">
+                    <div class="row">
+                        <div class="col d-grid"><a asp-controller="Author" asp-action="Index" class="btn btn-dark">Back</a></div>
+                        <div class="col d-grid">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @if (Model.Image is not null)
+        {
+            <div class="col-md-4">
+                <img src="@WC.ImagePathAuthor@Model.Image" class="img-fluid rounded w-100" />
+            </div>
+        }
+    </div>
+</form>
+
