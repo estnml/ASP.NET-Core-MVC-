@@ -1,0 +1,73 @@
+﻿@model Bookshop.Models.Book
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<form asp-controller="Book" asp-action="Delete" method="post" enctype="multipart/form-data">
+    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+    <div class="row">
+        <div class="col-md-8">
+            <input type="hidden" asp-for="@Model.Id" hidden />
+            <div class="mb-3 row">
+                <label asp-for="@Model.Title" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" asp-for="@Model.Title" disabled>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label asp-for="@Model.Description" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" rows="7" asp-for="@Model.Description" disabled></textarea>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label asp-for="@Model.Price" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="number" asp-for="@Model.Price" disabled>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label asp-for="@Model.NumOfPages" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="number" asp-for="@Model.NumOfPages" disabled>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label asp-for="@Model.Author" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" asp-for="Author.Name" disabled />
+                </div>
+            </div>
+            @*<div class="mb-3 row">
+                    <label asp-for="@Model.Image" class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="file" accept="image/*" name="files" multiple>
+                    </div>
+                </div>*@
+            <div class="mb-3 row">
+                <div class="col-2"></div>
+                <div class="col-10">
+                    <div class="row">
+                        <div class="col d-grid"><a asp-controller="Book" asp-action="Index" class="btn btn-dark">Back</a></div>
+                        <div class="col d-grid">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            @if (Model.Image is not null)
+            {
+                <img src="@WC.ImagePathBook@Model.Image" class="img-fluid rounded w-100" asp-append-version="true" />
+            }
+        </div>
+    </div>
+</form>
+
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+
+}
+

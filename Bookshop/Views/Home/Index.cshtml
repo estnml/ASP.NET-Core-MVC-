@@ -1,0 +1,42 @@
+﻿@model Bookshop.ViewModels.HomeVM
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+@if (Model.Books.Count() > 0)
+{
+
+    <div class="row">
+        @foreach (var book in Model.Books)
+        {
+            <div class="card my-3 shadow-sm">
+                <div class="row ">
+                    <div class="col-md-4 px-0">
+                        @if (book.Image is not null)
+                        {
+                            <img src="@WC.ImagePathBook@book.Image" class="img-fluid rounded-start" alt="">
+                        }
+                        else
+                        {
+                            <img src="~/images/Open_book_nae_02.svg.png" class="img-fluid rounded-start" alt="">
+                        }
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a class="link-secondary" asp-controller="Book" asp-action="Details" asp-route-id="@book.Id">@book.Title</a> -
+                                <a class="link-success" asp-controller="Author" asp-action="Details" asp-route-id="@book.Author.Id">@book.Author.Name</a>
+                            </h5>
+                            <p class="card-text">@book.Description</p>
+                            <p class="card-text">@book.NumOfPages pages - @book.Price.ToString("c")</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+

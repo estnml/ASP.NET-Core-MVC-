@@ -1,0 +1,59 @@
+﻿@model Bookshop.Models.Author
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<div class="card mb-5">
+    <div class="row">
+        <div class="col-md-4">
+            @if (Model.Image is not null)
+            {
+                <img src="@WC.ImagePathAuthor@Model.Image" class="img-fluid rounded-start w-100" asp-append-version="true">
+            }
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">@Model.Name</h5>
+                <p class="card-text">@Model.Description</p>
+                <p class="card-text"><small class="text-muted">@Model.Name has @Model.Books.Count books in our bookshop</small></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (Model.Books.Count > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Price</th>
+                <th scope="col">Pages</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in Model.Books)
+            {
+                <tr>
+                    <td width="10%">@book.Id</td>
+                    <td width="25%">@book.Title</td>
+                    <td width="10%">@book.Price</td>
+                    <td width="10%">@book.NumOfPages</td>
+                    <td>
+                        <div class="btn-group float-end" role="group" aria-label="Basic example">
+                            <a type="button" class="btn btn-outline-secondary" asp-controller="Book" asp-action="Details" asp-route-id="@book.Id">Details</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+else
+{
+    <h1 class="text-warning text-center">NO BOOKS IN DATABASE</h1>
+}
