@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Code\\aspnet\\Bookshop\\Bookshop\\Bookshop.csproj": {}
+    "D:\\GitHub\\ASP.NET-Core-MVC-\\Bookshop\\Bookshop\\Bookshop.csproj": {}
   },
   "projects": {
-    "D:\\Code\\aspnet\\Bookshop\\Bookshop\\Bookshop.csproj": {
+    "D:\\GitHub\\ASP.NET-Core-MVC-\\Bookshop\\Bookshop\\Bookshop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Code\\aspnet\\Bookshop\\Bookshop\\Bookshop.csproj",
+        "projectUniqueName": "D:\\GitHub\\ASP.NET-Core-MVC-\\Bookshop\\Bookshop\\Bookshop.csproj",
         "projectName": "Bookshop",
-        "projectPath": "D:\\Code\\aspnet\\Bookshop\\Bookshop\\Bookshop.csproj",
+        "projectPath": "D:\\GitHub\\ASP.NET-Core-MVC-\\Bookshop\\Bookshop\\Bookshop.csproj",
         "packagesPath": "C:\\Users\\esatn\\.nuget\\packages\\",
-        "outputPath": "D:\\Code\\aspnet\\Bookshop\\Bookshop\\obj\\",
+        "outputPath": "D:\\GitHub\\ASP.NET-Core-MVC-\\Bookshop\\Bookshop\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\esatn\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -77,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
